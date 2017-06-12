@@ -17,7 +17,6 @@ namespace PinkGarage.Models {
         public string Model { get; set; }
         public int NumOfWheels { get; set; }
         public DateTime CheckInTime { get; set; }
-        // public DateTime CheckOutTime { get; set; }
 
     }
     public enum Type {
