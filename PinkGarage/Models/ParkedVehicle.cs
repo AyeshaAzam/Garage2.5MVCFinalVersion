@@ -10,20 +10,29 @@ namespace PinkGarage.Models {
 
         public int ID { get; set; }
         [Required]
+        [MinLength(6)]
+        [MaxLength(20)]
         public string RegNum { get; set; }
 
         public Type Type { get; set; }
 
-        [Required]
-        [StringLength (1024)]
+        [Display(Name = "Type of Engine")]
+        public EngineTypes EngineType { get; set; }
+
+
+        [Display(Name = "Color")]
+        [MaxLength(20)]
         public string Color { get; set; }
 
+        [Display(Name = "Brand")]
+        [MaxLength (20)]
         [Required]
-        [StringLength(1024)]
         public string Brand { get; set; }
 
+
+        [Display(Name = "Model")]
+        [MaxLength(20)]
         [Required]
-        [StringLength(1024)]
         public string Model { get; set; }
 
         [Range(1, 10)]
@@ -37,6 +46,17 @@ namespace PinkGarage.Models {
         Car,
         Bus,
         MotorCycle
+    }
+
+
+
+    public enum EngineTypes
+    {
+        Bensin,
+        Diesel,
+        El,
+        Gas,
+        Hybrid
     }
 
 

@@ -28,8 +28,8 @@ namespace PinkGarage.Migrations
             //
 
             context.ParkedVehicles.AddOrUpdate(p => p.RegNum,
-                new Models.ParkedVehicle { RegNum = "ABC123", Type = 0, Brand = "Volvo", Model = "123", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now },
-               new Models.ParkedVehicle { RegNum = "Car123", Type = 0, Brand = "Volvo", Model = "2017", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now });
+                new Models.ParkedVehicle { RegNum = "ABC123", Type = 0, EngineType = 0 , Brand = "Volvo", Model = "123", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now },
+               new Models.ParkedVehicle { RegNum = "Car123", Type = 0, EngineType = 0, Brand = "Volvo", Model = "2017", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now });
               //new Models.ParkedVehicle { RegNum = "Bus123", Type = 1, Brand = "Volvo", Model = "2017", Color = "Yellow", NumOfWheels = 8, CheckInTime = DateTime.Now });
         }
 
