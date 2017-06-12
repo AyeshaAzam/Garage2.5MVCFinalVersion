@@ -46,10 +46,11 @@ namespace PinkGarage.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RegNum,Type,Color,Brand,Model,NumOfWheels,CheckInTime")] ParkedVehicle parkedVehicle)
+        public ActionResult Create([Bind(Include = "ID,RegNum,Type,Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
+                parkedVehicle.CheckInTime = DateTime.Now;
                 db.ParkedVehicles.Add(parkedVehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
