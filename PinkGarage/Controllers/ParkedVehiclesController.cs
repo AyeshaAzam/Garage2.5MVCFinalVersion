@@ -128,8 +128,18 @@ namespace PinkGarage.Controllers {
             return RedirectToAction("Index", inTime);
         }
 
-        protected override void Dispose(bool disposing) {
-            if(disposing) {
+        public ActionResult Checkout(string regnum)
+        {
+            var model = db.ParkedVehicles.Where(i => i.RegNum == regnum);
+            ViewBag.VehicleRegNum = regnum;
+            return View(model.ToList());
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+
                 db.Dispose();
             }
             base.Dispose(disposing);

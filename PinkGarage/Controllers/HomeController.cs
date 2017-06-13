@@ -11,13 +11,13 @@ namespace PinkGarage.Controllers {
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Welcome to Pink Garage";
 
             return View();
         }
 
         public ActionResult Contact() {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "You are Welcome to contact us at 070-458778";
 
             return View();
         }

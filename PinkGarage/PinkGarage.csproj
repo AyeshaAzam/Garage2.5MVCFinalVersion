@@ -216,7 +216,12 @@
     <Content Include="Views\ParkedVehicles\Delete.cshtml" />
     <Content Include="Views\ParkedVehicles\Details.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
+
     <Content Include="Views\ParkedVehicles\Receipt.cshtml" />
+
+    <Content Include="Views\ParkedVehicles\Checkouta.cshtml" />
+    <Content Include="Views\ParkedVehicles\Checkout.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
