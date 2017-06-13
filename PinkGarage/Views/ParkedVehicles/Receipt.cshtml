@@ -42,17 +42,23 @@
 
         </dd>
         <dt>
-            Resulttime
+            Some Maths
         </dt>
         <dd>
             @{
+
                 TimeSpan timePared = DateTime.Now - Model.CheckInTime;
-                string timeParedToString = timePared.ToString();
+
+                double checkQuarters = Math.Ceiling(timePared.TotalMinutes / 15); // Check how many started 15-minutes period you have been parked
+
+                double totalCosts = checkQuarters * 25;
+
             }
-            @timeParedToString;
+            You have been parked for @Math.Ceiling(timePared.TotalMinutes) minutes and @checkQuarters started 15-minutes period.
+
         </dd>
-        <dt>Costs</dt>
-        <dd>Pay</dd>
+        <dt>Your parking fee is</dt>
+        <dd>@totalCosts svKr;</dd>
     </dl>
 
 </div>
