@@ -118,6 +118,9 @@ namespace PinkGarage.Controllers {
             if(parkedVehicle == null) {
                 return HttpNotFound();
             }
+            db.ParkedVehicles.Remove(parkedVehicle);
+            db.SaveChanges();
+
 
             return View(parkedVehicle);
         }
