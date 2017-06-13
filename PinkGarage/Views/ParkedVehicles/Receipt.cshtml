@@ -10,14 +10,6 @@
     <h4>Receipt</h4>
     <hr />
     <dl class="dl-horizontal">
-       <dt>
-            @Html.DisplayNameFor(model => model.ID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-
-
         <dt>
             @Html.DisplayNameFor(model => model.RegNum)
         </dt>
@@ -27,12 +19,53 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumOfWheels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumOfWheels)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.CheckInTime)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CheckInTime)
         </dd>
+
         <dt>
             Checkouttime
         </dt>
@@ -40,21 +73,15 @@
         <dd>
             @DateTime.Now
 
-        </dd>
-        <dt>
-            Some Maths
-        </dt>
-        <dd>
+
             @{
 
                 TimeSpan timePared = DateTime.Now - Model.CheckInTime;
 
-                double checkQuarters = Math.Ceiling(timePared.TotalMinutes / 15); // Check how many started 15-minutes period you have been parked
-
-                double totalCosts = checkQuarters * 25;
+                double totalCosts = Math.Ceiling(timePared.TotalMinutes);
 
             }
-            You have been parked for @Math.Ceiling(timePared.TotalMinutes) minutes and @checkQuarters started 15-minutes period.
+            <br />You have been parked for @Math.Ceiling(timePared.TotalMinutes) minutes.
 
         </dd>
         <dt>Your parking fee is</dt>
