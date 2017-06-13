@@ -6,23 +6,56 @@
 
 <h2>List of Parked Vehicles</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by RegistrationNum : @Html.TextBox("SearchString")
+        <input type="submit" value="search" />
+        <p>
+            @ViewBag.Error
+       </p>
+    </p>
+
+
+}
 
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.RegNum)
+            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByRegNum })" >
+            <img src="~/Image/up_downArrow1.png" />
+        </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Type)
-        </th>
+            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByType })">
+            <img src="~/Image/up_downArrow1.png" />
+            </a>
+       </th>
         <th>
             @Html.DisplayNameFor(model => model.Color)
+            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByColor })">
+            <img src="~/Image/up_downArrow1.png" />
+            </a>
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Brand)
+            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByBrand })">
+            <img src="~/Image/up_downArrow1.png" />
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CheckInTime)
+            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByCheckIn })">
+            <img src="~/Image/up_downArrow1.png" />
+            </a>
         </th>
         <th></th>
     </tr>
