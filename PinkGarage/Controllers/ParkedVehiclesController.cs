@@ -79,7 +79,7 @@ namespace PinkGarage.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels,CheckInTime")] ParkedVehicle parkedVehicle)
+        public ActionResult Edit([Bind(Include = "ID,RegNum,Type,EngineType,Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {

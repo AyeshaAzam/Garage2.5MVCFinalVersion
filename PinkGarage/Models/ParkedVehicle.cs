@@ -9,6 +9,7 @@ namespace PinkGarage.Models {
     public class ParkedVehicle {
 
         public int ID { get; set; }
+
         [Required]
         [MinLength(6)]
         [MaxLength(20)]
@@ -47,8 +48,6 @@ namespace PinkGarage.Models {
         Bus,
         MotorCycle
     }
-
-
 
     public enum EngineTypes
     {
