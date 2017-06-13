@@ -1,0 +1,68 @@
+﻿@model PinkGarage.Models.ParkedVehicle
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Receipt</h2>
+
+<div>
+    <h4>Receipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInTime)
+        </dd>
+        <dt>
+            Checkouttime
+        </dt>
+
+        <dd>
+            @DateTime.Now
+
+        </dd>
+        <dt>
+            Resulttime
+        </dt>
+        <dd>
+            @{
+                TimeSpan timePared = DateTime.Now - Model.CheckInTime;
+                string timeParedToString = timePared.ToString();
+            }
+            @timeParedToString;
+        </dd>
+        <dt>Costs</dt>
+        <dd>Pay</dd>
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Stay parked", "Index")
+
+    @using(Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Check Out" class="btn btn-default" /> 
+        </div>
+    }
+</p>

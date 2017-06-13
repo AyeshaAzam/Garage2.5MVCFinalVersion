@@ -46,7 +46,11 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+
+            @Html.ActionLink("Check out", "Receipt", new { id=item.ID })
+
             @Html.ActionLink("Checkout", "Details", new { id=item.ID })
+
         </td>
     </tr>
 }
