@@ -17,7 +17,7 @@ namespace PinkGarage.Models {
 
         public Type Type { get; set; }
 
-        [Display(Name = "Type of Engine")]
+        [Display(Name = "FuelType")]
         public EngineTypes EngineType { get; set; }
 
 
@@ -51,9 +51,9 @@ namespace PinkGarage.Models {
 
     public enum EngineTypes
     {
-        Bensin,
+        Petrol,
         Diesel,
-        El,
+        Electric,
         Gas,
         Hybrid
     }
