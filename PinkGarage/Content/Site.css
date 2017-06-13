@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* For validation summary*/
+.validation-summary-valid {
+    display:none;
+}
+.validation-summary-errors{
+     display:none;
+}
