@@ -72,7 +72,7 @@
             @Html.DisplayFor(modelItem => item.CheckInTime)
         </td>
         <td>
-             @Html.ActionLink("Checkout", "Delete", new { id=item.ID })
+            @Html.ActionLink("Check Out", "Receipt", new { id = item.ID })
         </td>
     </tr>
 }
