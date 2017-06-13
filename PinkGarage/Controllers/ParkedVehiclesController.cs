@@ -105,6 +105,7 @@ namespace PinkGarage.Controllers
             return View(parkedVehicle);
         }
 
+
         // POST: ParkedVehicles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -114,6 +115,13 @@ namespace PinkGarage.Controllers
             db.ParkedVehicles.Remove(parkedVehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Checkout(string regnum)
+        {
+            var model = db.ParkedVehicles.Where(i => i.RegNum == regnum);
+            ViewBag.VehicleRegNum = regnum;
+            return View(model.ToList());
         }
 
         protected override void Dispose(bool disposing)

@@ -1,10 +1,19 @@
 ﻿@model IEnumerable<PinkGarage.Models.ParkedVehicle>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Checkout";
 }
 
-<h2>List of Parked Vehicles</h2>
+
+<h2>Checkout</h2>
+
+@using (Html.BeginForm())
+{
+    <p>Enter the Registration number: @Html.TextBox("regnum")</p>
+    <input type="submit" value="Fetch Details" />
+}
+
+<h4>Details of the Vehicle @ViewBag.VehicleRegNum</h4>
 
 
 <table class="table">
@@ -16,10 +25,19 @@
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.EngineType)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Color)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfWheels)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CheckInTime)
@@ -36,17 +54,25 @@
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.EngineType)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Color)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Brand)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfWheels)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.CheckInTime)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Checkout", "Details", new { id=item.ID })
+             @Html.ActionLink("Checkout", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
