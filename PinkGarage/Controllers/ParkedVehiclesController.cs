@@ -127,7 +127,7 @@ namespace PinkGarage.Controllers {
 
 
 
-        // POST: ParkedVehicles/Delete/5
+        // POST: ParkedVehicles/Receipt
         [HttpPost, ActionName("Receipt")]
         [ValidateAntiForgeryToken]
         public ActionResult ReceiptConfirmed(int id) {
@@ -154,7 +154,7 @@ namespace PinkGarage.Controllers {
 
             vehicles = vehicles.Where(p => p.RegNum.Equals(parkedVehicle.RegNum));
             if(vehicles.Count() > 0) {
-                ModelState.AddModelError("RegNum", "The registration number already exists. Try with another one!");
+                ModelState.AddModelError("RegNum", "A vehicle with same registration number already exists in the garage. Try with another one!");
             }
 
             if(ModelState.IsValid) {
