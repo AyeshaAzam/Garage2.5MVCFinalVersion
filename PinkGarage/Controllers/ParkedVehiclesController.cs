@@ -19,9 +19,6 @@ namespace PinkGarage.Controllers {
         //}
 
 
-
-        
-
         // GET: ParkedVehicles // adding Sorting Functionality
         public ActionResult Index(string orderBy, string searchString)
         {
@@ -86,14 +83,16 @@ namespace PinkGarage.Controllers {
                     break;
             }
 
-
-
             return View(vehicles.ToList());
         }
 
 
-
-
+        // GET: ParkedVehicles
+        public ActionResult FilterByObject()
+        {
+            return View(db.ParkedVehicles.ToList());
+        }
+        
 
 
 

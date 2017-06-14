@@ -11,7 +11,9 @@
 {
     <p>
         Find by RegistrationNum : @Html.TextBox("SearchString")
-        <input type="submit" value="search" />
+        <input type="submit" value="search" />  
+        @Html.ActionLink("[Unsorted List]", "Index")
+
         <p>
             @ViewBag.Error
        </p>
