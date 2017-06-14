@@ -20,34 +20,31 @@ namespace PinkGarage.Controllers {
 
 
 
-        
+
 
         // GET: ParkedVehicles // adding Sorting Functionality
-        public ActionResult Index(string orderBy, string searchString)
-        {
+        public ActionResult Index(string orderBy, string searchString) {
             ViewBag.Error = "";
             ViewBag.SortByRegNum = orderBy == "RegNum" ? "RegNum_desc" : "RegNum";
             ViewBag.SortByType = orderBy == "Type" ? "Type_desc" : "Type";
-            ViewBag.SortByColor  = orderBy == "Color" ? "Color_desc" : "Color";
+            ViewBag.SortByColor = orderBy == "Color" ? "Color_desc" : "Color";
             ViewBag.SortByBrand = orderBy == "Brand" ? "Brand_desc" : "Brand";
             ViewBag.SortByCheckIn = orderBy == "CheckInTime" ? "CheckInTime_desc" : "CheckInTime";
 
             var vehicles = db.ParkedVehicles.Select(p => p);
-           
+
 
             //search by RegNum 
-            if (!String.IsNullOrEmpty(searchString))
-            {
+            if(!String.IsNullOrEmpty(searchString)) {
                 vehicles = vehicles.Where(p => p.RegNum.Equals(searchString));
-                if (vehicles.Count() == 0)
+                if(vehicles.Count() == 0)
                     ViewBag.Error = "RegNumber is Invalid, Please try again!";
-                    //ModelState.AddModelError("", "");
+                  //ModelState.AddModelError("", "");
 
             }
 
 
-            switch (orderBy)
-            {
+            switch(orderBy) {
                 case "RegNum":
                     vehicles = vehicles.OrderBy(p => p.RegNum);
                     break;
@@ -132,10 +129,10 @@ namespace PinkGarage.Controllers {
         [ValidateAntiForgeryToken]
         public ActionResult ReceiptConfirmed(int id) {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-                       db.ParkedVehicles.Remove(parkedVehicle);
-                     db.SaveChanges();
+            db.ParkedVehicles.Remove(parkedVehicle);
+            db.SaveChanges();
 
-            
+
             return RedirectToAction("Index");
         }
 
@@ -149,10 +146,15 @@ namespace PinkGarage.Controllers {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle)
-        {
-            if (ModelState.IsValid)
-            {   
+        public ActionResult Create([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle) {
+            var vehicles = db.ParkedVehicles.Select(p => p);
+
+            vehicles = vehicles.Where(p => p.RegNum.Equals(parkedVehicle.RegNum));
+            if(vehicles.Count() > 0) {
+                ModelState.AddModelError("RegNum", "The registration number already exists. Try with another one!");
+            }
+
+            if(ModelState.IsValid) {
                 parkedVehicle.CheckInTime = DateTime.Now;
                 db.ParkedVehicles.Add(parkedVehicle);
                 db.SaveChanges();
@@ -209,22 +211,19 @@ namespace PinkGarage.Controllers {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
             DateTime inTime = parkedVehicle.CheckInTime;
 
-                       db.ParkedVehicles.Remove(parkedVehicle);
-                       db.SaveChanges();
+            db.ParkedVehicles.Remove(parkedVehicle);
+            db.SaveChanges();
             return RedirectToAction("Index", inTime);
         }
 
-        public ActionResult Checkout(string regnum)
-        {
+        public ActionResult Checkout(string regnum) {
             var model = db.ParkedVehicles.Where(i => i.RegNum == regnum);
             ViewBag.VehicleRegNum = regnum;
             return View(model.ToList());
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+        protected override void Dispose(bool disposing) {
+            if(disposing) {
 
                 db.Dispose();
             }
