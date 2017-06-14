@@ -17,11 +17,7 @@ namespace PinkGarage.Controllers {
         //{
         //    return View(db.ParkedVehicles.ToList());
         //}
-
-
-
         
-
         // GET: ParkedVehicles // adding Sorting Functionality
         public ActionResult Index(string orderBy, string searchString)
         {
@@ -90,16 +86,10 @@ namespace PinkGarage.Controllers {
 
             return View(vehicles.ToList());
         }
-
-
-
-
-
-
-
+        
 
         // GET: ParkedVehicles/Details/5
-        public ActionResult Details(int? id) {
+        public ActionResult Details(int? id, string time) {
             if(id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -107,6 +97,7 @@ namespace PinkGarage.Controllers {
             if(parkedVehicle == null) {
                 return HttpNotFound();
             }
+            ViewBag.Parkedtime = time;
             return View(parkedVehicle);
         }
         // GET: ParkedVehicles/checkout

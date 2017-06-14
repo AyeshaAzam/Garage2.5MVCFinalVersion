@@ -53,6 +53,9 @@
             <img src="~/Image/up_downArrow1.png" />
             </a>
         </th>
+        <th>
+           Time Parked <br /> HH:MM
+        </th>
         <th></th>
     </tr>
 
@@ -74,10 +77,31 @@
             @Html.DisplayFor(modelItem => item.CheckInTime)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID })
+            @{
+                System.TimeSpan a = DateTime.Now.Subtract(item.CheckInTime);
+                <div>@Math.Floor(a.TotalHours) : @a.ToString("mm")</div>
+                string timestring;
+                string HourString;
+                string MinString;
+                if (Math.Floor(a.TotalHours) <= 1)
+                { HourString = " Hr : "; }
+                else
+                { HourString = " Hrs : "; }
+
+                if (a.Minutes <= 1)
+                { MinString = "Min"; }
+                else
+                { MinString = "Mins"; }
+                timestring = @Math.Floor(a.TotalHours) + HourString + @a.ToString("mm") + MinString;
+              
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ID, time = timestring })
 
         </td>
     </tr>
+
 }
 
 </table>
