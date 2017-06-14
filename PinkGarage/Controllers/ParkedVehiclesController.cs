@@ -19,9 +19,6 @@ namespace PinkGarage.Controllers {
         //}
 
 
-
-
-
         // GET: ParkedVehicles // adding Sorting Functionality
         public ActionResult Index(string orderBy, string searchString) {
             ViewBag.Error = "";
@@ -32,7 +29,6 @@ namespace PinkGarage.Controllers {
             ViewBag.SortByCheckIn = orderBy == "CheckInTime" ? "CheckInTime_desc" : "CheckInTime";
 
             var vehicles = db.ParkedVehicles.Select(p => p);
-
 
             //search by RegNum 
             if(!String.IsNullOrEmpty(searchString)) {
@@ -94,9 +90,6 @@ namespace PinkGarage.Controllers {
         }
         
 
-
-
-
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id, string time) {
             if(id == null) {
@@ -109,6 +102,7 @@ namespace PinkGarage.Controllers {
             ViewBag.Parkedtime = time;
             return View(parkedVehicle);
         }
+
         // GET: ParkedVehicles/checkout
         public ActionResult Receipt(int? id) {
             if(id == null) {
@@ -121,11 +115,8 @@ namespace PinkGarage.Controllers {
             db.ParkedVehicles.Remove(parkedVehicle);
             db.SaveChanges();
 
-
             return View(parkedVehicle);
         }
-
-
 
         // POST: ParkedVehicles/Receipt
         [HttpPost, ActionName("Receipt")]
@@ -134,22 +125,20 @@ namespace PinkGarage.Controllers {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
             db.ParkedVehicles.Remove(parkedVehicle);
             db.SaveChanges();
-
-
             return RedirectToAction("Index");
         }
 
-        // GET: ParkedVehicles/Create
-        public ActionResult Create() {
+        // GET: ParkedVehicles/Checkin
+        public ActionResult Checkin() {
             return View();
         }
 
-        // POST: ParkedVehicles/Create
+        // POST: ParkedVehicles/Checkin
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle) {
+        public ActionResult Checkin([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle) {
             var vehicles = db.ParkedVehicles.Select(p => p);
 
             vehicles = vehicles.Where(p => p.RegNum.Equals(parkedVehicle.RegNum));
@@ -165,58 +154,6 @@ namespace PinkGarage.Controllers {
             }
 
             return View(parkedVehicle);
-        }
-
-        // GET: ParkedVehicles/Edit/5
-        public ActionResult Edit(int? id) {
-            if(id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-            if(parkedVehicle == null) {
-                return HttpNotFound();
-            }
-            return View(parkedVehicle);
-        }
-
-        // POST: ParkedVehicles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,RegNum,Type,EngineType,Color,Brand,Model,NumOfWheels")] ParkedVehicle parkedVehicle) {
-            if(ModelState.IsValid) {
-                db.Entry(parkedVehicle).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(parkedVehicle);
-        }
-
-        // GET: ParkedVehicles/Delete/5
-        public ActionResult Delete(int? id) {
-            if(id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-            if(parkedVehicle == null) {
-                return HttpNotFound();
-            }
-            return View(parkedVehicle);
-        }
-
-
-
-        // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id) {
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-            DateTime inTime = parkedVehicle.CheckInTime;
-
-            db.ParkedVehicles.Remove(parkedVehicle);
-            db.SaveChanges();
-            return RedirectToAction("Index", inTime);
         }
 
         public ActionResult Checkout(string regnum) {
