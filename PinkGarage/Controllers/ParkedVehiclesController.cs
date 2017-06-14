@@ -83,20 +83,22 @@ namespace PinkGarage.Controllers {
                     break;
             }
 
-
-
             return View(vehicles.ToList());
         }
+        
 
-
-
-
+        // GET: ParkedVehicles
+        public ActionResult FilterByObject()
+        {
+            return View(db.ParkedVehicles.ToList());
+        }
+        
 
 
 
 
         // GET: ParkedVehicles/Details/5
-        public ActionResult Details(int? id) {
+        public ActionResult Details(int? id, string time) {
             if(id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -104,6 +106,7 @@ namespace PinkGarage.Controllers {
             if(parkedVehicle == null) {
                 return HttpNotFound();
             }
+            ViewBag.Parkedtime = time;
             return View(parkedVehicle);
         }
         // GET: ParkedVehicles/checkout
