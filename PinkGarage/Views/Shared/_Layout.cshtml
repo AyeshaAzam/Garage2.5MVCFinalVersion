@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - PinkGarage</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,8 +20,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Checkin", "Create", "ParkedVehicles")</li>
-                    <li>@Html.ActionLink("Checkout", "Checkout", "ParkedVehicles")</li>
+                    <li>@Html.ActionLink("Check in", "Checkin", "ParkedVehicles")</li>
+                    <li>@Html.ActionLink("Check out", "Checkout", "ParkedVehicles")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Filter", "FilterObject", "ParkedVehicles")</li>
@@ -33,7 +33,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - PinkGarage Application</p>
+            <p>&copy; @DateTime.Now.Year - PinkGarage</p>
         </footer>
     </div>
 
