@@ -10,15 +10,13 @@
 @using(Html.BeginForm()) {
     <p>
         Find by RegistrationNum : @Html.TextBox("SearchString")
-        <input type="submit" value="search" />  
+    </p>
+    <input type="submit" value="search" />
         @Html.ActionLink("[Unsorted List]", "Index")
 
         <p>
             @ViewBag.Error
-       </p>
-    </p>
-
-
+        </p>
 }
 
 <table class="table">
@@ -55,54 +53,48 @@
             </a>
         </th>
         <th>
-           Time Parked <br /> HH:MM
+            Time Parked <br /> HH:MM
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckInTime)
-        </td>
-        <td>
-            @{
-                System.TimeSpan a = DateTime.Now.Subtract(item.CheckInTime);
-                <div>@Math.Floor(a.TotalHours) : @a.ToString("mm")</div>
-                string timestring;
-                string HourString;
-                string MinString;
-                if (Math.Floor(a.TotalHours) <= 1)
-                { HourString = " Hr : "; }
-                else
-                { HourString = " Hrs : "; }
+    @foreach(var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckInTime)
+            </td>
+            <td>
+                @{
+                    System.TimeSpan a = DateTime.Now.Subtract(item.CheckInTime);
+                    <div>@Math.Floor(a.TotalHours) : @a.ToString("mm")</div>
+                    string timestring;
+                    string HourString;
+                    string MinString;
+                    if(Math.Floor(a.TotalHours) <= 1) { HourString = " Hr : "; } else { HourString = " Hrs : "; }
 
-                if (a.Minutes <= 1)
-                { MinString = "Min"; }
-                else
-                { MinString = "Mins"; }
-                timestring = @Math.Floor(a.TotalHours) + HourString + @a.ToString("mm") + MinString;
-              
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID, time = timestring })
+                    if(a.Minutes <= 1) { MinString = "Min"; } else { MinString = "Mins"; }
+                    timestring = @Math.Floor(a.TotalHours) + HourString + @a.ToString("mm") + MinString;
 
-        </td>
-    </tr>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID, time = timestring })
 
-}
+            </td>
+        </tr>
+
+                    }
 
 </table>
