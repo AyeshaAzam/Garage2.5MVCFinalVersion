@@ -181,6 +181,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\arow.png" />
     <Content Include="Image\up_downArrow.png" />
     <Content Include="Image\Up_downArrow1.png" />
     <Content Include="Scripts\bootstrap.js" />

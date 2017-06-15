@@ -5,15 +5,18 @@
 }
 
 
-<h2>Checkout</h2>
+<h2><i>Checkout</i></h2>
 
 @using (Html.BeginForm())
 {
-    <p>Enter the Registration number: @Html.TextBox("regnum")</p>
-    <input type="submit" value="Fetch Details" />
+    <p>
+        Registration number: @Html.TextBox("regnum")
+        <input type="submit" value="Fetch Details" />
+    </p>
 }
 
-<h4>Details of the Vehicle @ViewBag.VehicleRegNum</h4>
+<hr />
+<h4><i>Details of the Vehicle @ViewBag.VehicleRegNum</i></h4>
 
 
 <table class="table">
