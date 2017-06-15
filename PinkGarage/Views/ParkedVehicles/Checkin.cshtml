@@ -4,7 +4,7 @@
     ViewBag.Title = "Check in";
 }
 
-<h3><i>Pinkgarage - Vehicle checkin</i></h3>
+<h3 class="pinkheader">Pinkgarage - Vehicle checkin</h3>
 
 @using (Html.BeginForm()) 
 {
@@ -88,8 +88,8 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div><span class="searchlistbutton">
+    @Html.ActionLink("Back to List", "Index")</span>
 </div>
 
 @section Scripts {

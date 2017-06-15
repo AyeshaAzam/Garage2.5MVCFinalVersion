@@ -4,20 +4,20 @@
     ViewBag.Title = "Vehicles";
 }
 
-<h3><i>List of Parked Vehicles</i></h3>
+<h3><i>@ViewBag.Message</i></h3>
+<h3 class="pinkheader">List of Parked Vehicles</h3>
 <hr />
 
-@using (Html.BeginForm())
-{
-  
+@using(Html.BeginForm()) {
+    <div class="IndexSearch">
         <p>
             Registration Number : @Html.TextBox("SearchString")
             <input type="submit" value="search" />
         </p>
-        <div class="IndexSearch">
-            @Html.ActionLink("[Unsorted List]", "Index")
-
+        <div class="searchlist">
+            @Html.ActionLink("Unsorted List", "Index")
         </div>
+    </div>
 
         <p>
             @ViewBag.Error

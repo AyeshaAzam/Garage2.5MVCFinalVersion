@@ -1,12 +1,16 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: palevioletred;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 20px;
+    border: 3px solid #8C485E;
+    background-color: #FAECF1;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -25,73 +29,117 @@ textarea {
 
 /* For validation summary*/
 .validation-summary-valid {
-    display:none;
-}
-.validation-summary-errors{
-     display:none;
-}
-.navbar{
-     background-color:black;
+    display: none;
 }
 
-.navbar-nav li a:visited{
-    color:palevioletred;
+.validation-summary-errors {
+    display: none;
 }
 
-body{
-    background-color:palevioletred;
+.navbar {
+    background-color: black;
 }
 
-.navbar-header a.navbar-brand, 
-.navbar-header a.navbar-brand:visited
- {
-     color:palevioletred;
+.navbar-nav li a:visited {
+    color: palevioletred;
 }
-img{
+
+.navbar-header a.navbar-brand,
+.navbar-header a.navbar-brand:visited {
+    color: palevioletred;
+}
+
+img {
     border: 1px solid;
 }
 
-#SearchString{
-    border:outset;
-    border-color:thistle;
-    background-color:palevioletred;
+#SearchString {
+    border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
 }
 
-#regnum{
- border:outset;
-    border-color:thistle;
-    background-color:palevioletred;
+#regnum {
+    border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
 }
 
-.form-control{
-    border:outset;
-    border-color:thistle;
-    background-color:palevioletred;
-    color:black;
+.form-control {
+    border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
+    color: black;
 }
 
-.btn{
-      background-color:palevioletred;
-      border:inset;
-      border-color:purple;
-      color:black;
+.btn {
+    background-color: #FDF7F9;
+    border: inset;
+    border-color: purple;
+    color: black;
 }
 
-.container input{
-    border:outset;
-    border-color:thistle;
-    background-color:palevioletred;
-    color:black;
+.container input {
+    border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
+    color: black;
 }
 
-a{
-     color:black;
+a {
+    color: black;
+}
+.pinkheader{
+    font-style:italic;
+    color: palevioletred;
+    font-weight:bold;
+    text-shadow:1px 2px 2px black;
+
 }
 
-a:hover{
-    color:purple;
+    a:hover {
+        color: purple;
+    }
+
+.IndexSearch p {
+    display: inline;
 }
 
-.IndexSearch {
- text-align:right;
-  }
+.searchlist {
+    float: right;
+    text-align: right;
+        border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
+padding:2px 4px 2px 4px;
+}
+.searchlistbutton {
+        border: outset;
+    border-color: thistle;
+    background-color: #FDF7F9;
+padding:2px 4px 2px 4px;
+margin-left:4px;
+}
+input[type="text"] {
+    background-color: #FDF7F9;
+}
+
+footer{
+    color:dimgray;
+    font-size:.9em;
+    font-style:italic;
+    text-align:center;
+}
+hr{
+    color: red;
+}
+
+.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+
+  border-top: 1px solid palevioletred;
+}
