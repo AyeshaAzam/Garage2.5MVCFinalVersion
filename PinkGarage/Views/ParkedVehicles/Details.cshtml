@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3 class="pinkheader">Details</h3>
 
 <div>
     <h4>ParkedVehicle</h4>
@@ -82,6 +82,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Check Out", "Receipt", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <span class="searchlistbutton">
+        @Html.ActionLink("Check Out", "Receipt", new { id = Model.ID })</span>
+    <span class="searchlistbutton"> @Html.ActionLink("Back to List", "Index")</span>
 </p>
