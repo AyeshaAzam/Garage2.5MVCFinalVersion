@@ -83,12 +83,45 @@ namespace PinkGarage.Controllers {
         }
         
 
-        // GET: ParkedVehicles
-        public ActionResult FilterByObject()
+        //// GET: ParkedVehicles
+        public ActionResult FilterObject()
         {
-            return View(db.ParkedVehicles.ToList());
+            var model = db.ParkedVehicles.ToList();
+            return View(model);
+
         }
-        
+
+
+        // Models.Type? = is not nullable
+        [HttpPost]
+        public ActionResult FilterObject(string brand, Models.Type? type)
+        {
+            var brandList = new List<string>();
+
+
+            var brandQry = from b in db.ParkedVehicles
+                           orderby b.Brand
+                           select b.Brand;
+            brandList.AddRange(brandQry);
+            ViewBag.brand = new SelectList(brandList);
+
+            var model = from b in db.ParkedVehicles
+                        select b;
+
+            if (type!=null)
+            {
+                model = model.Where(s => s.Type == type);
+            }
+
+
+            if (string.IsNullOrEmpty(brand))
+                return View(model);
+            else
+            {
+                return View(model.Where(x => x.Brand == brand));
+            }
+
+        }
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id, string time) {

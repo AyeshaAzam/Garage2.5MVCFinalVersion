@@ -220,6 +220,7 @@
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\Receipt.cshtml" />
     <Content Include="Views\ParkedVehicles\Checkout.cshtml" />
+    <Content Include="Views\ParkedVehicles\FilterObject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
