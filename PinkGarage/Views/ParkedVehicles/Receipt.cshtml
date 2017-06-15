@@ -75,19 +75,27 @@
 
             @{
 
-                TimeSpan timePared = DateTime.Now - Model.CheckInTime;
+                TimeSpan timeParked = DateTime.Now - Model.CheckInTime;
 
-                double totalCosts = Math.Ceiling(timePared.TotalMinutes);
+                double totalCosts = Math.Ceiling(timeParked.TotalMinutes);
 
+                string timestring;
+                string HourString;
+                string MinString;
+                if (Math.Floor(timeParked.TotalHours) <= 1) { HourString = " Hr : "; } else { HourString = " Hrs : "; }
+                if (timeParked.Minutes <= 1) { MinString = "Min"; } else { MinString = "Mins"; }
+                timestring = @Math.Floor(timeParked.TotalHours) + HourString + timeParked.ToString("mm") + MinString;
             }
-            <br />You have been parked for @Math.Ceiling(timePared.TotalMinutes) minutes.
+            <br />Total Parking Time : @timestring 
 
         </dd>
         <dt>Your parking fee is</dt>
-        <dd>@totalCosts svKr;</dd>
+        <dd>@totalCosts SEK;</dd>
     </dl>
 
 </div>
 <p>
     Welcome back!
+    <br />
+    @Html.ActionLink("Back to Vehicle List", "Index")
 </p>
