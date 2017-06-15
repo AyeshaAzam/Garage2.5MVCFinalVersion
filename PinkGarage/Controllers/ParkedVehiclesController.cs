@@ -95,6 +95,7 @@ namespace PinkGarage.Controllers {
         // Models.Type? = is not nullable
         [HttpPost]
         public ActionResult FilterObject(string brand, Models.Type? type)
+
         {
             var brandList = new List<string>();
 
