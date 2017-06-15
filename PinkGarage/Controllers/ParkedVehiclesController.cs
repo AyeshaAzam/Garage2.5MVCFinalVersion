@@ -199,7 +199,7 @@ namespace PinkGarage.Controllers {
             {
                 if (model.Count() == 0)
                 {
-                    ViewBag.Error = "Sorry!!! No Vehicle with the Registration Number : " + regnum + " is currentely checkin";
+                    ViewBag.Error = "Sorry!!! No Vehicle with the Registration Number : " + regnum + " is currentely checked in";
                     ViewBag.VehicleRegNum = "";
                 }
             }
