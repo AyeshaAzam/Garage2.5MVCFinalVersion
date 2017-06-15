@@ -7,10 +7,9 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
-{
+@using(Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ParkedVehicle</h4>
         <hr />
@@ -75,9 +74,9 @@
     </div>
 }
 
-<div>
+<span class="searchlistbutton">
     @Html.ActionLink("Back to List", "Index")
-</div>
+</span>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

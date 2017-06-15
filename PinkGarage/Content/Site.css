@@ -89,17 +89,21 @@ img {
 a {
     color: black;
 }
-.pinkheader{
-    font-style:italic;
-    color: palevioletred;
-    font-weight:bold;
-    text-shadow:1px 2px 2px black;
 
+.pinkheader {
+    font-style: italic;
+    color: palevioletred;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px black;
 }
 
-    a:hover {
-        color: purple;
-    }
+h1.pinkheader{
+    text-align:center;
+}
+
+a:hover {
+    color: purple;
+}
 
 .IndexSearch p {
     display: inline;
@@ -108,30 +112,29 @@ a {
 .searchlist {
     float: right;
     text-align: right;
-        border: outset;
+    border: outset;
     border-color: thistle;
     background-color: #FDF7F9;
-padding:2px 4px 2px 4px;
+    padding: 2px 4px 2px 4px;
 }
+
 .searchlistbutton {
-        border: outset;
+    border: outset;
     border-color: thistle;
     background-color: #FDF7F9;
-padding:2px 4px 2px 4px;
-margin-left:4px;
+    padding: 2px 4px 2px 4px;
+    margin-left: 4px;
 }
+
 input[type="text"] {
     background-color: #FDF7F9;
 }
 
-footer{
-    color:dimgray;
-    font-size:.9em;
-    font-style:italic;
-    text-align:center;
-}
-hr{
-    color: red;
+footer {
+    color: dimgray;
+    font-size: .9em;
+    font-style: italic;
+    text-align: center;
 }
 
 .table thead > tr > th,
@@ -140,6 +143,5 @@ hr{
 .table thead > tr > td,
 .table tbody > tr > td,
 .table tfoot > tr > td {
-
-  border-top: 1px solid palevioletred;
+    border-top: 1px solid palevioletred;
 }
