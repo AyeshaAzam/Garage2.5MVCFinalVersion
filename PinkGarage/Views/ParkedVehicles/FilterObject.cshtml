@@ -1,0 +1,88 @@
+﻿
+@model IEnumerable<PinkGarage.Models.ParkedVehicle>
+
+@{
+    ViewBag.Title = "FilterObject";
+}
+
+<h2>Filter the Object for quick search <br /></h2>
+
+
+
+
+@using (Html.BeginForm("FilterObject", "ParkedVehicles", FormMethod.Post))
+{
+    <p>
+        Enter Car's Brand: @Html.TextBox("brand")
+        @{var type = Model.ToList()[0].Type;}
+        Choose VehicleType: @Html.EnumDropDownListFor(model => type)
+        <input type="submit" value="Filter" />
+
+    </p>
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfWheels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngineType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfWheels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckInTime)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
