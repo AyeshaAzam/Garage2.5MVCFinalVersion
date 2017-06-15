@@ -34,8 +34,8 @@ namespace PinkGarage.Controllers {
             if(!String.IsNullOrEmpty(searchString)) {
                 vehicles = vehicles.Where(p => p.RegNum.Equals(searchString));
                 if(vehicles.Count() == 0)
-                    ViewBag.Error = "RegNumber is Invalid, Please try again!";
-                  //ModelState.AddModelError("", "");
+                    ViewBag.Error = "Sorry!!! No Vehicle with the Registration Number : " + searchString + " is currentely checkin";
+                //ModelState.AddModelError("", "");
 
             }
 
@@ -190,11 +190,58 @@ namespace PinkGarage.Controllers {
             return View(parkedVehicle);
         }
 
-        public ActionResult Checkout(string regnum) {
-            var model = db.ParkedVehicles.Where(i => i.RegNum == regnum);
+        public ActionResult Checkout(string regnum)
+        {
+            ViewBag.Error = "";
             ViewBag.VehicleRegNum = regnum;
+            var model = db.ParkedVehicles.Where(i => i.RegNum == regnum);
+            if (!String.IsNullOrEmpty(regnum))
+            {
+                if (model.Count() == 0)
+                {
+                    ViewBag.Error = "Sorry!!! No Vehicle with the Registration Number : " + regnum + " is currentely checkin";
+                    ViewBag.VehicleRegNum = "";
+                }
+            }
+                         
             return View(model.ToList());
         }
+
+
+
+
+        // GET: Employees/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
+            if (parkedVehicle == null)
+            {
+                return HttpNotFound();
+            }
+            return View(parkedVehicle);
+        }
+
+        // POST: Employees/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,RegNum,Type,EngineType, Color,Brand,Model,NumOfWheels,CheckInTime")] ParkedVehicle parkedVehicle)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(parkedVehicle).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(parkedVehicle);
+        }
+
+
 
         protected override void Dispose(bool disposing) {
             if(disposing) {

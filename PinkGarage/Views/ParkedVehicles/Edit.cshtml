@@ -1,26 +1,23 @@
 ﻿@model PinkGarage.Models.ParkedVehicle
 
 @{
-    ViewBag.Title = "Check in";
+    ViewBag.Title = "Edit";
 }
 
-<h3 class="pinkheader">Pinkgarage - Vehicle checkin</h3>
+<h2>Edit</h2>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Enter the details of the vehicle to be parked in the garage</h4>
+        <h4>ParkedVehicle</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RegNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RegNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RegNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.RegNum)
+        @Html.HiddenFor(model => model.CheckInTime)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -37,7 +34,6 @@
                 @Html.ValidationMessageFor(model => model.EngineType, "", new { @class = "text-danger" })
             </div>
         </div>
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -66,30 +62,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NumOfWheels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NumOfWheels, new { htmlAttributes = new { @min = 1, @max = 10, @class = "form-control" } })
+                @Html.EditorFor(model => model.NumOfWheels, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumOfWheels, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.CheckInTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CheckInTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CheckInTime, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Checkin" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div><span class="searchlistbutton">
-    @Html.ActionLink("Back to List", "Index")</span>
+<div>
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

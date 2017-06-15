@@ -5,7 +5,7 @@
 }
 
 
-<h2><i>Checkout</i></h2>
+<h3 class="pinkheader">Checkout</h3>
 
 @using (Html.BeginForm())
 {
@@ -14,6 +14,10 @@
         <input type="submit" value="Fetch Details" />
     </p>
 }
+
+<p>
+    @ViewBag.Error
+</p>
 
 <hr />
 <h4><i>Details of the Vehicle @ViewBag.VehicleRegNum</i></h4>
