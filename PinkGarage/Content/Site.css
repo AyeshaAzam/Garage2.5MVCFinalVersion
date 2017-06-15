@@ -145,3 +145,6 @@ footer {
 .table tfoot > tr > td {
     border-top: 1px solid palevioletred;
 }
+.pinkerror{
+    margin-top:20px;
+}

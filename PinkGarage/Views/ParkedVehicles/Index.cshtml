@@ -19,87 +19,88 @@
         </div>
     </div>
 
+    <div class="pinkerror">
         <p>
             @ViewBag.Error
-        </p>
-}
+        </p></div>
+        }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNum)
-            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByRegNum })">
-                <img src="~/Image/up_downArrow1.png" />
-            </a>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByType })">
-                <img src="~/Image/up_downArrow1.png" />
-            </a>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByColor })">
-                <img src="~/Image/up_downArrow1.png" />
-            </a>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegNum)
+                    <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByRegNum })">
+                        <img src="~/Image/up_downArrow1.png" />
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                    <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByType })">
+                        <img src="~/Image/up_downArrow1.png" />
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Color)
+                    <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByColor })">
+                        <img src="~/Image/up_downArrow1.png" />
+                    </a>
 
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByBrand })">
-                <img src="~/Image/up_downArrow1.png" />
-            </a>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckInTime)
-            <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByCheckIn })">
-                <img src="~/Image/up_downArrow1.png" />
-            </a>
-        </th>
-        <th>
-            Time Parked <br /> HH:MM
-        </th>
-        <th></th>
-    </tr>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+                    <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByBrand })">
+                        <img src="~/Image/up_downArrow1.png" />
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CheckInTime)
+                    <a href="@Url.Action("Index", "ParkedVehicles", new {orderBy = ViewBag.SortByCheckIn })">
+                        <img src="~/Image/up_downArrow1.png" />
+                    </a>
+                </th>
+                <th>
+                    Time Parked <br /> HH:MM
+                </th>
+                <th></th>
+            </tr>
 
-    @foreach(var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckInTime)
-            </td>
-            <td>
-                @{
-                    System.TimeSpan a = DateTime.Now.Subtract(item.CheckInTime);
-                    <div>@Math.Floor(a.TotalHours) : @a.ToString("mm")</div>
-                    string timestring;
-                    string HourString;
-                    string MinString;
-                    if(Math.Floor(a.TotalHours) <= 1) { HourString = " Hr : "; } else { HourString = " Hrs : "; }
+            @foreach(var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CheckInTime)
+                    </td>
+                    <td>
+                        @{
+                            System.TimeSpan a = DateTime.Now.Subtract(item.CheckInTime);
+                            <div>@Math.Floor(a.TotalHours) : @a.ToString("mm")</div>
+                            string timestring;
+                            string HourString;
+                            string MinString;
+                            if(Math.Floor(a.TotalHours) <= 1) { HourString = " Hr : "; } else { HourString = " Hrs : "; }
 
-                    if(a.Minutes <= 1) { MinString = "Min"; } else { MinString = "Mins"; }
-                    timestring = @Math.Floor(a.TotalHours) + HourString + @a.ToString("mm") + MinString;
+                            if(a.Minutes <= 1) { MinString = "Min"; } else { MinString = "Mins"; }
+                            timestring = @Math.Floor(a.TotalHours) + HourString + @a.ToString("mm") + MinString;
 
-                }
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID, time = timestring }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID})
-            </td>
-        </tr>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID, time = timestring }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    </td>
+                </tr>
 
-                    }
+                            }
 
-</table>
+        </table>
