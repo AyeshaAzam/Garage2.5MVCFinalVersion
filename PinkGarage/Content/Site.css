@@ -30,3 +30,68 @@ textarea {
 .validation-summary-errors{
      display:none;
 }
+.navbar{
+     background-color:black;
+}
+
+.navbar-nav li a:visited{
+    color:palevioletred;
+}
+
+body{
+    background-color:palevioletred;
+}
+
+.navbar-header a.navbar-brand, 
+.navbar-header a.navbar-brand:visited
+ {
+     color:palevioletred;
+}
+img{
+    border: 1px solid;
+}
+
+#SearchString{
+    border:outset;
+    border-color:thistle;
+    background-color:palevioletred;
+}
+
+#regnum{
+ border:outset;
+    border-color:thistle;
+    background-color:palevioletred;
+}
+
+.form-control{
+    border:outset;
+    border-color:thistle;
+    background-color:palevioletred;
+    color:black;
+}
+
+.btn{
+      background-color:palevioletred;
+      border:inset;
+      border-color:purple;
+      color:black;
+}
+
+.container input{
+    border:outset;
+    border-color:thistle;
+    background-color:palevioletred;
+    color:black;
+}
+
+a{
+     color:black;
+}
+
+a:hover{
+    color:purple;
+}
+
+.IndexSearch {
+ text-align:right;
+  }
