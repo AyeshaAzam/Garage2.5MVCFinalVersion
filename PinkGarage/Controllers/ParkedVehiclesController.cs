@@ -83,46 +83,7 @@ namespace PinkGarage.Controllers {
         }
         
 
-        //// GET: ParkedVehicles
-        public ActionResult FilterObject()
-        {
-            var model = db.ParkedVehicles.ToList();
-            return View(model);
-
-        }
-
-
-        // Models.Type? = is not nullable
-        [HttpPost]
-        public ActionResult FilterObject(string brand, Models.Type? type)
-        {
-            var brandList = new List<string>();
-
-
-            var brandQry = from b in db.ParkedVehicles
-                           orderby b.Brand
-                           select b.Brand;
-            brandList.AddRange(brandQry);
-            ViewBag.brand = new SelectList(brandList);
-
-            var model = from b in db.ParkedVehicles
-                        select b;
-
-            if (type!=null)
-            {
-                model = model.Where(s => s.Type == type);
-            }
-
-
-            if (string.IsNullOrEmpty(brand))
-                return View(model);
-            else
-            {
-                return View(model.Where(x => x.Brand == brand));
-            }
-
-        }
-
+        
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id, string time) {
             if(id == null) {
@@ -240,6 +201,35 @@ namespace PinkGarage.Controllers {
             return View(parkedVehicle);
         }
 
+        public ActionResult SearchVehicle(int? value, string SearchString)
+        {
+            IQueryable<ParkedVehicle> model;
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Registration Number", Value = "1"});
+            items.Add(new SelectListItem { Text = "Type", Value = "2" });
+            items.Add(new SelectListItem { Text = "Color", Value = "3"});
+            items.Add(new SelectListItem { Text = "Brand", Value = "4" });
+            ViewBag.PropertySelect = items;
+            model = db.ParkedVehicles.Where(i => i.ID == 0);
+            switch (value)
+            {
+                case 1:
+                    model = db.ParkedVehicles.Where(i => i.RegNum == SearchString);
+                    break;
+                case 2:
+                    model = db.ParkedVehicles.Where(i => i.Type.ToString() == SearchString);
+                    break;
+                case 3:
+                    model = db.ParkedVehicles.Where(i => i.Color == SearchString);
+                    break;
+                case 4:
+                    model = db.ParkedVehicles.Where(i => i.Brand == SearchString);
+                    break;
+                default:
+                    break;
+            }
+            return View(model.ToList());
+        }
 
 
         protected override void Dispose(bool disposing) {

@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: palevioletred;
+    background-color: lightgray;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,8 +9,7 @@
     padding-left: 15px;
     padding-right: 15px;
     margin-top: 20px;
-    border: 3px solid #8C485E;
-    background-color: #FAECF1;
+    background-color: lightgray;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -41,12 +40,12 @@ textarea {
 }
 
 .navbar-nav li a:visited {
-    color: palevioletred;
+    color: lightgray;
 }
 
 .navbar-header a.navbar-brand,
 .navbar-header a.navbar-brand:visited {
-    color: palevioletred;
+    color:lightgray;
 }
 
 img {
@@ -55,34 +54,58 @@ img {
 
 #SearchString {
     border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+    border-color:darkgray;
+    background-color:lightgrey;
 }
 
 #regnum {
     border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+    border-color:darkgray;
+    background-color:lightgrey;
 }
 
 .form-control {
     border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+    border-color:darkgray;
+    background-color:lightgrey;
     color: black;
 }
 
 .btn {
-    background-color: #FDF7F9;
+   
     border: inset;
-    border-color: purple;
+      border-color:darkgray;
+    background-color:lightgrey;
     color: black;
 }
 
 .container input {
     border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+    border-color:darkgray;
+    background-color:lightgrey;
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+
+
+
+
+.btn {
+    border-color:darkgray;
+    background-color:lightgrey;
+    border: inset;
+  
+    color: black;
+}
+
+.container input {
+    border: outset;
+   border-color:darkgray;
+    background-color:lightgrey;
     color: black;
 }
 
@@ -91,7 +114,6 @@ a {
 }
 .pinkheader{
     font-style:italic;
-    color: palevioletred;
     font-weight:bold;
     text-shadow:1px 2px 2px black;
 
@@ -109,19 +131,21 @@ a {
     float: right;
     text-align: right;
         border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+  border-color:darkgray;
+    background-color:lightgrey;
 padding:2px 4px 2px 4px;
 }
+
 .searchlistbutton {
         border: outset;
-    border-color: thistle;
-    background-color: #FDF7F9;
+    border-color:darkgray;
+    background-color:lightgrey;
 padding:2px 4px 2px 4px;
 margin-left:4px;
 }
+
 input[type="text"] {
-    background-color: #FDF7F9;
+    background-color: lightgrey;
 }
 
 footer{
@@ -130,16 +154,8 @@ footer{
     font-style:italic;
     text-align:center;
 }
+
 hr{
     color: red;
 }
 
-.table thead > tr > th,
-.table tbody > tr > th,
-.table tfoot > tr > th,
-.table thead > tr > td,
-.table tbody > tr > td,
-.table tfoot > tr > td {
-
-  border-top: 1px solid palevioletred;
-}

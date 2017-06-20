@@ -11,7 +11,7 @@ namespace PinkGarage.Controllers {
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Welcome to Pink Garage";
+            ViewBag.Message = "Welcome to City Garage";
 
             return View();
         }

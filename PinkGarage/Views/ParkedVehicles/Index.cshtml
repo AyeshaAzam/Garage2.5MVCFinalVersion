@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<PinkGarage.Models.ParkedVehicle>
 
 @{
-    ViewBag.Title = "Vehicles";
+    ViewBag.Title = "Vehicles - Checkout";
 }
 
+<h3 class="pinkheader">@ViewBag.Title</h3>
+
 <h3><i>@ViewBag.Message</i></h3>
-<h3 class="pinkheader">List of Parked Vehicles</h3>
+
+<h3 class="pinkheader"></h3>
 <hr />
 
 @using(Html.BeginForm()) {
@@ -15,13 +18,11 @@
             <input type="submit" value="search" />
         </p>
         <div class="searchlist">
-            @Html.ActionLink("Unsorted List", "Index")
+            @Html.ActionLink("Show All", "Index")
         </div>
     </div>
 
-        <p>
-            @ViewBag.Error
-        </p>
+      
 }
 
 <table class="table">
@@ -63,6 +64,10 @@
         <th></th>
     </tr>
 
+    <p>
+        @ViewBag.Error
+    </p> 
+
     @foreach(var item in Model) {
         <tr>
             <td>
@@ -96,7 +101,8 @@
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.ID, time = timestring }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID})
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID}) |*@
+                @Html.ActionLink("Checkout", "Receipt", new { id = item.ID })
             </td>
         </tr>
 

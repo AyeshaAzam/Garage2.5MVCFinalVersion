@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<PinkGarage.Models.ParkedVehicle>
 
 @{
-    ViewBag.Title = "Check out";
+    ViewBag.Title = "Checkout";
 }
-
-
-<h3 class="pinkheader">Checkout</h3>
+<h3 class="pinkheader">@ViewBag.Title</h3>
 
 @using (Html.BeginForm())
 {

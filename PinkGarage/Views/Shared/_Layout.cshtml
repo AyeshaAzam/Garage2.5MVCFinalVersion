@@ -16,13 +16,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <i>@Html.ActionLink("PinkGarage", "Index", "ParkedVehicles", new { area = "" }, new { @class = "navbar-brand" }) </i> 
+                <i>@Html.ActionLink("City Garage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </i> 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Check in", "Checkin", "ParkedVehicles")</li>
-                    <li>@Html.ActionLink("Check out", "Checkout", "ParkedVehicles")</li>
-                    <li>@Html.ActionLink("Filter", "FilterObject", "ParkedVehicles")</li>
+                    <li>@Html.ActionLink("Check out", "Index", "ParkedVehicles")</li>
+                    <li>@Html.ActionLink("Search", "SearchVehicle", "ParkedVehicles")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                    
@@ -34,7 +34,7 @@
             @RenderBody()
             
             <footer><hr />
-                <p>&copy; @DateTime.Now.Year - PinkGarage</p>
+                <p>&copy; @DateTime.Now.Year - CityGarage</p>
             </footer>
         </div>
     @Scripts.Render("~/bundles/jquery")
