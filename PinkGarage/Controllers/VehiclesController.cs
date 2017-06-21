@@ -14,12 +14,27 @@ namespace PinkGarage.Controllers
     {
         private CityGarageDbContext db = new CityGarageDbContext();
 
-        // GET: Vehicles
-        public ActionResult Index()
-        {
-            var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
+
+
+        public ActionResult Index(string searchString) {
+            IQueryable<Vehicle> vehicles;
+            ViewBag.Error = "";
+            vehicles = db.Vehicles.Select(p => p);
+
+            //search by RegNum 
+            if(!String.IsNullOrEmpty(searchString)) {
+                vehicles = db.Vehicles.Where(p => p.RegNum.Equals(searchString));
+                if(vehicles.Count() == 0)
+                    ViewBag.Error = "Sorry!!! There is no parked vehicle with regnumb " + searchString + " in Citygarage";
+            }
+
             return View(vehicles.ToList());
+
         }
+
+
+
+
 
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
