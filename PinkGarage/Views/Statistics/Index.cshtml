@@ -6,3 +6,11 @@
 
 <h2>Index</h2>
 
+
+@using (Html.BeginForm())
+{
+    <p>
+        Property: @Html.DropDownList("value", (List<SelectListItem>)ViewBag.PropertySelect, "Statistics Option")
+        <input type="submit" value="Statistics" />
+    </p> 
+}
