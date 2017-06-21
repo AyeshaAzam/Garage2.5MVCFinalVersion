@@ -11,6 +11,24 @@
     <p>
         @Html.ActionLink("Check in new vehicle", "Create")
     </p></div>
+
+@using(Html.BeginForm()) {
+    <div class="IndexSearch">
+        <p>
+            <b>RegNumb :</b> @Html.TextBox("SearchString")
+            <input type="submit" value="search" />
+            <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Vehicles") + "'");" />
+        </p>
+    </div>
+
+}
+<br />
+<div>
+    @ViewBag.Error
+</div>
+<br />
+
+
     <table class="table">
         <tr>
             <th>
