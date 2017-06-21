@@ -90,10 +90,6 @@ a {
     color: black;
 }
 
-
-
-
-
 .btn {
     border-color:darkgray;
     background-color:lightgrey;
@@ -141,6 +137,11 @@ padding:2px 4px 2px 4px;
     background-color:lightgrey;
 padding:2px 4px 2px 4px;
 margin-left:4px;
+}
+
+.create{
+     float: right;
+     display: inline-block;
 }
 
 input[type="text"] {
