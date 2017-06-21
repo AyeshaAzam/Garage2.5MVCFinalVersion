@@ -9,5 +9,7 @@ namespace PinkGarage.Models
     {
         public int VehicleTypeId { get; set; }
         public string VehicleTypeName { get; set; }
+        public virtual ICollection<Vehicle> Vehicle { get; set; }
+
     }
 }

@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201706210640331_Add virtual datatype.Designer.cs">
       <DependentUpon>201706210640331_Add virtual datatype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706210837311_Added Navigation Property for Models.cs" />
+    <Compile Include="Migrations\201706210837311_Added Navigation Property for Models.Designer.cs">
+      <DependentUpon>201706210837311_Added Navigation Property for Models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CityGarageDbContext.cs" />
     <Compile Include="Models\GarageDbContext.cs" />
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706210640331_Add virtual datatype.resx">
       <DependentUpon>201706210640331_Add virtual datatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706210837311_Added Navigation Property for Models.resx">
+      <DependentUpon>201706210837311_Added Navigation Property for Models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
