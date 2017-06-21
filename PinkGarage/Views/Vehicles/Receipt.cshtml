@@ -1,0 +1,107 @@
+﻿@model PinkGarage.Models.Vehicle
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Receipt</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+    <dt>
+        Member
+    </dt>
+
+    <dd>
+        @ViewBag.membername
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Member.Address)
+    </dt>
+
+    <dd>
+        @ViewBag.address
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Member.PhoneNumber)
+    </dt>
+    <dd>
+        @ViewBag.phonenumber
+<hr />
+    </dd>
+        </dl>
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNum)
+        </dd>
+        <dt>
+           Type of vehicle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleType.VehicleTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInTime)
+        </dd>
+
+        <dt>
+            Checkouttime
+        </dt>
+
+        <dd>
+            @DateTime.Now
+
+
+            @{
+
+                TimeSpan timeParked = DateTime.Now - Model.CheckInTime;
+
+                double totalCosts = Math.Ceiling(timeParked.TotalMinutes);
+
+                string timestring;
+                string HourString;
+                string MinString;
+                if(Math.Floor(timeParked.TotalHours) <= 1) { HourString = " Hr : "; } else { HourString = " Hrs : "; }
+                if(timeParked.Minutes <= 1) { MinString = "Min"; } else { MinString = "Mins"; }
+                timestring = @Math.Floor(timeParked.TotalHours) + HourString + timeParked.ToString("mm") + MinString;
+            }
+            <br />Total Parking Time : @timestring
+
+        </dd>
+        <dt>Your parking fee is</dt>
+        <dd>@totalCosts SEK;</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
