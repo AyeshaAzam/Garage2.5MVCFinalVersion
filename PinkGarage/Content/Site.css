@@ -10,6 +10,13 @@
     padding-right: 15px;
     margin-top: 20px;
     background-color: lightgray;
+
+}
+
+.content-wrapper, img.img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -45,7 +52,7 @@ textarea {
 
 .navbar-header a.navbar-brand,
 .navbar-header a.navbar-brand:visited {
-    color:lightgray;
+    color: lightgray;
 }
 
 img {
@@ -54,35 +61,34 @@ img {
 
 #SearchString {
     border: outset;
-    border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
 }
 
 #regnum {
     border: outset;
-    border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
 }
 
 .form-control {
     border: outset;
-    border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
     color: black;
 }
 
 .btn {
-   
     border: inset;
-      border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
     color: black;
 }
 
 .container input {
     border: outset;
-    border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
     color: black;
 }
 
@@ -91,17 +97,16 @@ a {
 }
 
 .btn {
-    border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
     border: inset;
-  
     color: black;
 }
 
 .container input {
     border: outset;
-   border-color:darkgray;
-    background-color:lightgrey;
+    border-color: darkgray;
+    background-color: lightgrey;
     color: black;
 }
 
@@ -109,14 +114,13 @@ a {
     color: black;
 }
 
-.pinkheader{
-    font-style:italic;
-
+.pinkheader {
+    font-style: italic;
 }
 
-    a:hover {
-        color: purple;
-    }
+a:hover {
+    color: purple;
+}
 
 .IndexSearch p {
     display: inline;
@@ -125,37 +129,36 @@ a {
 .searchlist {
     float: right;
     text-align: right;
-        border: outset;
-  border-color:darkgray;
-    background-color:lightgrey;
-padding:2px 4px 2px 4px;
+    border: outset;
+    border-color: darkgray;
+    background-color: lightgrey;
+    padding: 2px 4px 2px 4px;
 }
 
 .searchlistbutton {
-        border: outset;
-    border-color:darkgray;
-    background-color:lightgrey;
-padding:2px 4px 2px 4px;
-margin-left:4px;
+    border: outset;
+    border-color: darkgray;
+    background-color: lightgrey;
+    padding: 2px 4px 2px 4px;
+    margin-left: 4px;
 }
 
-.create{
-     float: right;
-     display: inline-block;
+.create {
+    float: right;
+    display: inline-block;
 }
 
 input[type="text"] {
     background-color: lightgrey;
 }
 
-footer{
-    color:dimgray;
-    font-size:.9em;
-    font-style:italic;
-    text-align:center;
+footer {
+    color: dimgray;
+    font-size: .9em;
+    font-style: italic;
+    text-align: center;
 }
 
-hr{
+hr {
     color: red;
 }
-
