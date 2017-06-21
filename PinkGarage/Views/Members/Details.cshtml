@@ -6,25 +6,21 @@
 }
 
 <h2>Details</h2>
+@{
+    var memberName = Model.FName + " " + Model.LName;
+}
+
 
 <div>
     <h4>Member</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FName)
-        </dt>
+           Member Name 
 
         <dd>
-            @Html.DisplayFor(model => model.FName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LName)
+            @memberName
         </dd>
 
         <dt>
@@ -45,7 +41,57 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MemberId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+ @*<h4><i>Details of the Vehicle @ViewBag.VehicleRegNum</i></h4>*@
+    
+   
+<table class="table">
+    <tr>
+        
+        <th>Registration Number</th>
+        <th>Type of Vehicle</th>
+        <th>CheckIntime</th>
+    </tr>
+
+        @if (Model.Vehicle.Count() == 0)
+        {
+            <tr>
+                <td>
+                    Sorry! No vehicles of this type is found in the garage
+                </td>
+            </tr>
+        }
+
+   
+  
+     @foreach (var item in Model.Vehicle)
+     {
+        <tr>
+            @*@{
+               
+                var memberName = item.Member.FName + " " + item.Member.LName;
+            }*@
+
+            
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNum)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType.VehicleTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckInTime)
+            </td>
+        </tr>
+      }
+
+  
+</table>
+
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.MemberId }) |*@
+        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer })
