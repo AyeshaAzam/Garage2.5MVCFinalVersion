@@ -120,6 +120,6 @@
         </dl>
 </div>
 <p>
-    @Html.ActionLink("Stay in garage", "Index") |
-    @Html.ActionLink("Check out", "Receipt", new { id = Model.VehicleID }, new { Member = Model.Member })
+    @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer }) | 
+    @Html.ActionLink("Receipt", "Receipt", new { id = Model.VehicleID }, new { Member = Model.Member })
 </p>

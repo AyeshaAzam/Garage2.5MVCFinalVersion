@@ -151,12 +151,14 @@ namespace PinkGarage.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            int memberId = vehicle.MemberId;
-            Member member = db.Members.Find(memberId);
+            Member member = db.Members.Find(vehicle.MemberId);
+
             ViewBag.memberid = member.MemberId;
             ViewBag.membername = member.FName + " " + member.LName;
             ViewBag.address = member.Address;
             ViewBag.phonenumber = member.PhoneNumber;
+            ViewBag.typeOfVehicle = db.VehicleTypes.Find(vehicle.VehicleTypeId).VehicleTypeName;
+
             if(vehicle == null) {
                 return HttpNotFound();
             }
