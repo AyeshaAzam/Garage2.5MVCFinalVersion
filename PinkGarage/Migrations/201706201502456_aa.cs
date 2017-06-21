@@ -3,16 +3,16 @@ namespace PinkGarage.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RemovedCheckoutTime : DbMigration
+    public partial class aa : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.ParkedVehicles", "CheckOutTime");
+            AlterColumn("dbo.VehicleTypes", "VehicleTypeName", c => c.String());
         }
         
         public override void Down()
         {
-            AddColumn("dbo.ParkedVehicles", "CheckOutTime", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.VehicleTypes", "VehicleTypeName", c => c.Int(nullable: false));
         }
     }
 }

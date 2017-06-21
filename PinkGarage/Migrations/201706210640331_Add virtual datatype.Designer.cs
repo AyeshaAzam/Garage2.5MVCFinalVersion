@@ -7,13 +7,13 @@ namespace PinkGarage.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class SampleData : IMigrationMetadata
+    public sealed partial class Addvirtualdatatype : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SampleData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Addvirtualdatatype));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706121308295_SampleData"; }
+            get { return "201706210640331_Add virtual datatype"; }
         }
         
         string IMigrationMetadata.Source

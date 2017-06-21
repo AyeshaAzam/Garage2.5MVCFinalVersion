@@ -5,14 +5,15 @@ namespace PinkGarage.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PinkGarage.Models.GarageDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PinkGarage.Models.CityGarageDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "PinkGarage.Models.CityGarageDbContext";
         }
 
-        protected override void Seed(PinkGarage.Models.GarageDbContext context)
+        protected override void Seed(PinkGarage.Models.CityGarageDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -26,12 +27,6 @@ namespace PinkGarage.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.ParkedVehicles.AddOrUpdate(p => p.RegNum,
-                new Models.ParkedVehicle { RegNum = "ABC123", Type = 0, EngineType = 0 , Brand = "Volvo", Model = "123", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now },
-               new Models.ParkedVehicle { RegNum = "Car123", Type = 0, EngineType = 0, Brand = "Volvo", Model = "2017", Color = "Red", NumOfWheels = 4, CheckInTime = DateTime.Now });
-              //new Models.ParkedVehicle { RegNum = "Bus123", Type = 1, Brand = "Volvo", Model = "2017", Color = "Yellow", NumOfWheels = 8, CheckInTime = DateTime.Now });
         }
-
     }
 }
