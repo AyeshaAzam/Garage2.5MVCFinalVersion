@@ -14,6 +14,11 @@ namespace PinkGarage.Controllers
         // GET: Statistics
         public ActionResult Index()
         {
+            IQueryable<ParkedVehicle> model;
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Parked Vehicle", Value = "1" });
+            items.Add(new SelectListItem { Text = "Member", Value = "2" });
+            ViewBag.PropertySelect = items;
             return View();
         }
     }
