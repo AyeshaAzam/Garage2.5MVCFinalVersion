@@ -125,6 +125,57 @@ namespace PinkGarage.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: ParkedVehicles/checkout
+        public ActionResult Checkout(int? id) {
+            if(id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vehicle vehicle = db.Vehicles.Find(id);
+            if(vehicle == null) {
+                return HttpNotFound();
+            }
+            return View(vehicle);
+        }
+
+        // POST: ParkedVehicles/Receipt
+        [HttpPost, ActionName("Checkout")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ReceiptConfirmedREMOVE(int id) {
+            Vehicle vehicle = db.Vehicles.Find(id);
+            return RedirectToAction("Index");
+        }
+
+        // GET: ParkedVehicles/checkout
+        public ActionResult Receipt(int? id) {
+            if(id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vehicle vehicle = db.Vehicles.Find(id);
+            int memberId = vehicle.MemberId;
+            Member member = db.Members.Find(memberId);
+            ViewBag.memberid = member.MemberId;
+            ViewBag.membername = member.FName + " " + member.LName;
+            ViewBag.address = member.Address;
+            ViewBag.phonenumber = member.PhoneNumber;
+            if(vehicle == null) {
+                return HttpNotFound();
+            }
+            db.Vehicles.Remove(vehicle);
+            db.SaveChanges();
+
+            return View(vehicle);
+        }
+
+        // POST: ParkedVehicles/Receipt
+        [HttpPost, ActionName("Receipt")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ReceiptConfirmed(int id) {
+            Vehicle parkedVehicle = db.Vehicles.Find(id);
+            db.Vehicles.Remove(parkedVehicle);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

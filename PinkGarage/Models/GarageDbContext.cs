@@ -11,5 +11,11 @@ namespace PinkGarage.Models {
         }
 
         public DbSet<Models.ParkedVehicle> ParkedVehicles { get; set; }
+
+        public System.Data.Entity.DbSet<PinkGarage.Models.Vehicle> Vehicles { get; set; }
+
+        public System.Data.Entity.DbSet<PinkGarage.Models.Member> Members { get; set; }
+
+        public System.Data.Entity.DbSet<PinkGarage.Models.VehicleType> VehicleTypes { get; set; }
     }
 }

@@ -5,30 +5,43 @@
     Layout = "~/Views/Shared/_CityGarageLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@using (Html.BeginForm())
+{
+    <div class="IndexSearch">
+        <p>
+            <b>Type :</b> @Html.TextBox("SearchString")
+            <input type="submit" value="search" />
+            <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "VehicleTypes") + "'");" />
+        </p>
+    </div>
+    <div class="create">
+            <input type="button" value="Create New Type" onclick="@("window.location.href='" + @Url.Action("Create", "VehicleTypes") + "'");" />
+    </div>
+}
+<br />
+<div>
+    @ViewBag.Error
+</div>
+<br />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.VehicleTypeName)
+            Vehicle Type
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehicleTypeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VehicleTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.VehicleTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VehicleTypeId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleTypeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VehicleTypeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VehicleTypeId })
+            </td>
+        </tr>
+    }
 
 </table>

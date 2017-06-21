@@ -15,9 +15,22 @@ namespace PinkGarage.Controllers
         private CityGarageDbContext db = new CityGarageDbContext();
 
         // GET: VehicleTypes
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.VehicleTypes.ToList());
+            IQueryable<VehicleType> vehiclestype;
+            ViewBag.Error = "";
+            vehiclestype = db.VehicleTypes.Select(p => p);
+
+            //search by RegNum 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+               vehiclestype = db.VehicleTypes.Where(p => p.VehicleTypeName.Equals(searchString));
+                if (vehiclestype.Count() == 0)
+                    ViewBag.Error = "Sorry!!! Vehicle type " + searchString + " is not found";
+            }
+
+            return View(vehiclestype.ToList());
+
         }
 
         // GET: VehicleTypes/Details/5

@@ -18,10 +18,51 @@
         <dd>
             @Html.DisplayFor(model => model.VehicleTypeName)
         </dd>
-
+        <dd><br /></dd>
+        <dt><br /></dt>
+        <dt>
+           Parked Vehicles
+        </dt>
+        <dd><br /></dd>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Member Name</th>
+                    <th>Checkin Time</th>
+                    <th>Details</th>
+                </tr>
+                @if (Model.Vehicle.Count() == 0)
+                {
+                <tr><td>No vehicles of this type is found in the garage</td></tr>
+                }
+                @foreach (var item in Model.Vehicle)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegNum)
+                        </td>
+                        @{ 
+                            var name = item.Member.FName + " " + item.Member.LName;
+                        }
+                        <td>
+                            @name
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CheckInTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Member", "Details", "Members", new { id = item.MemberId }, null) |
+                            @Html.ActionLink("Vehicle", "Details", "Vehicles", new { id = item.VehicleID }, null)
+                           
+                        </td>
+                    </tr>
+                  }
+                       
+            </table>
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleTypeId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer })
 </p>
