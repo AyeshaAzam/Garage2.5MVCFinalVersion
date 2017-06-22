@@ -7,10 +7,7 @@
 
 <h2>Vehicles parked in Citygarage</h2>
 
-<div class="searchlist">
-    <p>
-        @Html.ActionLink("Check in new vehicle", "Create")
-    </p></div>
+
 
 @using(Html.BeginForm()) {
     <div class="IndexSearch">
@@ -20,7 +17,9 @@
             <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Vehicles") + "'");" />
         </p>
     </div>
-
+    <div class="create">
+        <input type="button" value="Check in new car" onclick="@("window.location.href='" + @Url.Action("Vehicles", "Vehicle") + "'");" />
+    </div>
 }
 <br />
 <div>
