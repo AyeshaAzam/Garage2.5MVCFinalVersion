@@ -128,9 +128,18 @@ namespace PinkGarage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            ViewBag.errormsg = "";
             Member member = db.Members.Find(id);
-            db.Members.Remove(member);
-            db.SaveChanges();
+            var idmember = db.Vehicles.Where(p => p.MemberId == id);
+            if(idmember.Count() == 0)
+            {
+                db.Members.Remove(member);
+                db.SaveChanges();
+            }
+            else
+            {
+                ViewBag.errormsg = "Member has vehicle parked";
+            }
             return RedirectToAction("Index");
         }
 

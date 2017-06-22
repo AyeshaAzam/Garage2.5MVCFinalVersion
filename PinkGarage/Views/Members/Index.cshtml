@@ -11,7 +11,7 @@
 {
     <div class="createregister">
 
-        <img title="Register" src="~/Image/Register.jpg" onclick="@("window.location.href='" + @Url.Action("Create", "Members") + "'");" />
+        <img title="Register" src="~/Image/Register.jpg"  onmouseover="this.style.cursor='pointer'" onclick="@("window.location.href='" + @Url.Action("Create", "Members") + "'");" />
         <p><b>Register New Member</b></p>
     </div>
     <p>
@@ -62,9 +62,8 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.MemberId })
-                         @*|
-                        @Html.ActionLink("Delete", "Delete", new { id = item.MemberId })*@
+                        @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MemberId })
                     </td>
                 </tr>
             }

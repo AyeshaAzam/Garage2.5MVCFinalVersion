@@ -9,7 +9,7 @@
 {
     <div class="createtype">
 
-        <img title="Register" src="~/Image/Vehicle Type.jpg" onclick="@("window.location.href='" + @Url.Action("Create", "VehicleTypes") + "'");" />
+        <img title="Register" src="~/Image/Vehicle Type.jpg" onmouseover="this.style.cursor='pointer'" onclick="@("window.location.href='" + @Url.Action("Create", "VehicleTypes") + "'");" />
         <p><b>New Vehicle Type</b></p>
     </div>
     <div class="IndexSearch">
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.VehicleTypeName)
             </td>
             <td>
-               @Html.ActionLink("Details", "Details", new { id = item.VehicleTypeId })
+               @Html.ActionLink("Parked Vehicles", "Details", new { id = item.VehicleTypeId })
             </td>
         </tr>
     }
