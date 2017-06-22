@@ -159,7 +159,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
-    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Controllers\VehicleTypesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,7 +196,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\Parkin.jpg" />
     <Content Include="Image\parking-garage.jpg" />
+    <Content Include="Image\Register.jpg" />
     <Content Include="Image\up_downArrow.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -256,9 +257,6 @@
     <Content Include="Views\Vehicles\Index.cshtml" />
     <Content Include="Views\Vehicles\Checkout.cshtml" />
     <Content Include="Views\Vehicles\Receipt.cshtml" />
-    <Content Include="Views\Statistics\Index.cshtml" />
-    <Content Include="Views\Statistics\Member.cshtml" />
-    <Content Include="Views\Statistics\Vehicles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

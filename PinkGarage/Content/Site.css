@@ -145,9 +145,27 @@ a:hover {
     margin-left: 4px;
 }
 
-.create {
+.create{
     float: right;
     display: inline-block;
+}
+
+.create img{
+    width:80px
+}
+
+.createregister{
+    float: right;
+    display: inline-block;
+}
+
+.createregister img{
+    width:110px;
+   margin:auto;
+}
+
+.create p{
+    text-align:center;
 }
 
 input[type="text"] {

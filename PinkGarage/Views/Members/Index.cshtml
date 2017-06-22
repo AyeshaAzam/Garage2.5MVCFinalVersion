@@ -9,6 +9,11 @@
 
 @using (Html.BeginForm())
 {
+    <div class="createregister">
+
+        <img title="Register" src="~/Image/Register.jpg" onclick="@("window.location.href='" + @Url.Action("Create", "Members") + "'");" />
+        <p>Register New Member</p>
+    </div>
     <p>
         Search By FirstName: @Html.TextBox("SearchFName")
         <input type="submit" value="Filter" />

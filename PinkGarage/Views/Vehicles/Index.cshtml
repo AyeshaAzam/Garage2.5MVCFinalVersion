@@ -5,21 +5,25 @@
     Layout = "~/Views/Shared/_CityGarageLayout.cshtml";
 }
 
-<h2>Vehicles parked in Citygarage</h2>
+@*<h2>Vehicles parked in Citygarage</h2>*@
 
 
 
-@using(Html.BeginForm()) {
+@using (Html.BeginForm())
+{
+    <div class="create">
+        
+        <img src="~/Image/Parkin.jpg"  title="Check in"  onclick="@("window.location.href='" + @Url.Action("Create", "Vehicles") + "'");" />
+        <p>Check in</p>
+    </div>
     <div class="IndexSearch">
         <p>
-            <b>RegNumb :</b> @Html.TextBox("SearchString")
+            <b>Registration Number :</b> @Html.TextBox("SearchString")
             <input type="submit" value="search" />
             <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Vehicles") + "'");" />
         </p>
     </div>
-    <div class="create">
-        <input type="button" value="Check in new car" onclick="@("window.location.href='" + @Url.Action("Vehicles", "Vehicle") + "'");" />
-    </div>
+   
 }
 <br />
 <div>
