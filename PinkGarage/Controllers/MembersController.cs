@@ -14,11 +14,30 @@ namespace PinkGarage.Controllers
     {
         private CityGarageDbContext db = new CityGarageDbContext();
 
-        // GET: Members
-        public ActionResult Index()
+        //// GET: Members
+        //public ActionResult Index()
+        //{
+        //    return View(db.Members.ToList());
+        //}
+
+
+        //search by FirstName method
+        public ActionResult Index(string SearchFName)
         {
-            return View(db.Members.ToList());
+            ViewBag.Error = "";
+            var members = db.Members.Select(m => m);
+
+            if(!String.IsNullOrEmpty(SearchFName))
+            {
+                members = db.Members.Where(m => m.FName.Equals(SearchFName));
+                if (members.Count() == 0)
+                    ViewBag.Error = "Name ['" + SearchFName + "'] Not found! ";
+            }
+
+
+            return View(members.ToList());
         }
+
 
         // GET: Members/Details/5
         public ActionResult Details(int? id)

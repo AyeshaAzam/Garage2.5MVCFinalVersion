@@ -5,7 +5,23 @@
     Layout = "~/Views/Shared/_CityGarageLayout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
+
+@using (Html.BeginForm())
+{
+    <p>
+        Search By FirstName: @Html.TextBox("SearchFName")
+        <input type="submit" value="Filter" />
+            @Html.ActionLink("Show All", "Index")
+</p> 
+}
+
+
+<p>
+    @ViewBag.Error
+</p>
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
