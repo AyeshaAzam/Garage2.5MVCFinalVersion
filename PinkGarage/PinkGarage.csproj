@@ -200,6 +200,7 @@
     <Content Include="Image\parking-garage.jpg" />
     <Content Include="Image\Register.jpg" />
     <Content Include="Image\up_downArrow.png" />
+    <Content Include="Image\Vehicle Type.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

@@ -154,6 +154,10 @@ a:hover {
     width:80px
 }
 
+.create p{
+    text-align:center;
+}
+
 .createregister{
     float: right;
     display: inline-block;
@@ -161,10 +165,23 @@ a:hover {
 
 .createregister img{
     width:110px;
-   margin:auto;
 }
 
-.create p{
+.createregister p{
+    text-align:center;
+}
+
+.createtype{
+    float: right;
+    display: inline-block;
+}
+
+.createtype img{
+    width:60px;
+    height:60px;
+}
+
+.createtype p{
     text-align:center;
 }
 

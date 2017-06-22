@@ -7,15 +7,17 @@
 
 @using (Html.BeginForm())
 {
+    <div class="createtype">
+
+        <img title="Register" src="~/Image/Vehicle Type.jpg" onclick="@("window.location.href='" + @Url.Action("Create", "VehicleTypes") + "'");" />
+        <p><b>Register New Vehicle Type</b></p>
+    </div>
     <div class="IndexSearch">
         <p>
             <b>Type :</b> @Html.TextBox("SearchString")
             <input type="submit" value="search" />
             <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "VehicleTypes") + "'");" />
         </p>
-    </div>
-    <div class="create">
-            <input type="button" value="Create New Type" onclick="@("window.location.href='" + @Url.Action("Create", "VehicleTypes") + "'");" />
     </div>
 }
 <br />
