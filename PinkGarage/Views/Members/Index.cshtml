@@ -15,7 +15,7 @@
         <p>Register New Member</p>
     </div>
     <p>
-        Search By FirstName: @Html.TextBox("SearchFName")
+        <b>Search By FirstName: </b>@Html.TextBox("SearchFName")
         <input type="submit" value="Filter" />
         <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Members") + "'");" />
 </p> 
