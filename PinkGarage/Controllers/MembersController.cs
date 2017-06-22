@@ -21,19 +21,19 @@ namespace PinkGarage.Controllers
         //}
 
 
-        //search by FirstName method
+        ////search by FirstName method
         public ActionResult Index(string SearchFName)
         {
             ViewBag.Error = "";
             var members = db.Members.Select(m => m);
 
-            if(!String.IsNullOrEmpty(SearchFName))
+            if (!String.IsNullOrEmpty(SearchFName))
             {
-                members = db.Members.Where(m => m.FName.Equals(SearchFName));
+                members = db.Members.Where(m => m.FName.Contains(SearchFName)
+                 || m.LName.Contains(SearchFName));
                 if (members.Count() == 0)
                     ViewBag.Error = "Name ['" + SearchFName + "'] Not found! ";
             }
-
 
             return View(members.ToList());
         }
