@@ -12,7 +12,7 @@
 @using(Html.BeginForm()) {
     <div class="IndexSearch">
         <p>
-            <b>RegNumb :</b> @Html.TextBox("SearchString")
+            <b>RegNum :</b> @Html.TextBox("SearchString")
             <input type="submit" value="search" />
             <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Vehicles") + "'");" />
         </p>

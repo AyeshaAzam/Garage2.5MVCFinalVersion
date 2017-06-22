@@ -9,60 +9,62 @@
 
 @using (Html.BeginForm())
 {
-    <p>
-        Search By FirstName: @Html.TextBox("SearchFName")
-        <input type="submit" value="Filter" />
-            @Html.ActionLink("Show All", "Index")
-</p> 
+    <div class="IndexSearch">
+        <p>
+        <p>
+            <b>Search By FirstName: </b>  @Html.TextBox("SearchFName")
+            <input type="submit" value="Filter" />
+            <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Members") + "'");" />
+        </p>
+    </div>
+
+    <div class="create">
+        <input type="button" value="Create New" onclick="@("window.location.href='" + @Url.Action("Create", "Members") + "'");" />
+    </div>
 }
-
-
-<p>
+<br />
+<div>
     @ViewBag.Error
-</p>
+</div>
 
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th></th>
+            </tr>
 
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MemberId })
+                    </td>
+                </tr>
+            }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MemberId })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
