@@ -17,13 +17,8 @@
     <p>
         Search By FirstName: @Html.TextBox("SearchFName")
         <input type="submit" value="Filter" />
-            @Html.ActionLink("Show All", "Index")
+        <input type="button" value="Show all" onclick="@("window.location.href='" + @Url.Action("Index", "Members") + "'");" />
 </p> 
-}
-
-    <div class="create">
-        <input type="button" value="Create New" onclick="@("window.location.href='" + @Url.Action("Create", "Members") + "'");" />
-    </div>
 }
 <br />
 <div>
