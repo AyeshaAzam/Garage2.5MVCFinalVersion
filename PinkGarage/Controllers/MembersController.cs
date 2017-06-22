@@ -128,8 +128,7 @@ namespace PinkGarage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ViewBag.errormsg = "";
-            Member member = db.Members.Find(id);
+             Member member = db.Members.Find(id);
             var idmember = db.Vehicles.Where(p => p.MemberId == id);
             if(idmember.Count() == 0)
             {
@@ -138,7 +137,7 @@ namespace PinkGarage.Controllers
             }
             else
             {
-                ViewBag.errormsg = "Member has vehicle parked";
+                TempData["ErrorMessage"] = "Sorry!!!. " + member.FName + " " + member.LName + " has vehicle(s) parked. Please Check out the Vehicle(s) before deleting the membership";
             }
             return RedirectToAction("Index");
         }
