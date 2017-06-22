@@ -257,6 +257,8 @@
     <Content Include="Views\Vehicles\Checkout.cshtml" />
     <Content Include="Views\Vehicles\Receipt.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Statistics\Member.cshtml" />
+    <Content Include="Views\Statistics\Vehicles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

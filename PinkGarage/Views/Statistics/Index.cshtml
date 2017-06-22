@@ -4,13 +4,9 @@
     Layout = "~/Views/Shared/_CityGarageLayout.cshtml";
 }
 
-<h2>Index</h2>
 
-
-@using (Html.BeginForm())
+@*@using (Html.BeginForm())
 {
-    <p>
-        Property: @Html.DropDownList("value", (List<SelectListItem>)ViewBag.PropertySelect, "Statistics Option")
-        <input type="submit" value="Statistics" />
-    </p> 
-}
+    <input class="Vehicle" type="button" value="Vehicles" onclick="@("window.location.href='" + @Url.Action("Vehicles", "Statistics") + "'");" />
+    <input type="button" value="Member" onclick="@("window.location.href='" + @Url.Action("Member", "Statistics") + "'");" />
+}*@
